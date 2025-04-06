@@ -1,0 +1,25 @@
+@host = http://localhost:8080
+
+###
+GET {{host}}/logging
+
+###
+GET {{host}}/exception
+
+###
+GET {{host}}/secret
+
+###
+GET {{host}}/dolphins
+
+###
+GET {{host}}/sql
+
+###
+POST {{host}}/chat
+Content-Type: application/json
+
+{
+  "cartId": "c636540b-af0d-40ae-90e2-1ef9e7d7ebf7",
+  "input": "I need flowers for my wife"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "flowershop",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node ./dist/app.js"
+  },
+  "keywords": [],
+  "author": "Rainer Stropek",
+  "license": "MIT",
+  "description": "A simple API for a flower shop",
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/mssql": "^9.1.7",
+    "@types/node": "^22.14.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@azure/identity": "^4.8.0",
+    "@azure/keyvault-secrets": "^4.9.0",
+    "@azure/monitor-opentelemetry": "^1.9.0",
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.57.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "mssql": "^11.0.1",
+    "openai": "^4.91.1",
+    "tedious": "^18.6.1"
+  }
+}

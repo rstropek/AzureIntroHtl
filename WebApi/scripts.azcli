@@ -1,0 +1,50 @@
+az webapp up --name web-azureintrohtl2 \
+    --resource-group AzureIntroHtl \
+    --plan app-azureintrohtl2 \
+    --os-type Linux \
+    --location swedencentral \
+    --runtime "node|22-LTS" \
+    --sku F1
+
+az webapp up --name web-azureintrohtl1 \
+    --resource-group AzureIntroHtl \
+    --plan app-azureintrohtl1 \
+    --os-type Linux \
+    --location swedencentral \
+    --runtime "node|22-LTS" \
+    --sku P0V3
+
+az acr login --name crazureintrohtl
+docker build -t crazureintrohtl.azurecr.io/azureintrohtl .
+docker push crazureintrohtl.azurecr.io/azureintrohtl
+
+# See also https://learn.microsoft.com/en-us/azure/static-web-apps/deploy-web-framework
+az staticwebapp create --name web-azureintrohtl-fe \
+    --resource-group AzureIntroHtl \
+    --query "defaultHostname" \
+    --location westeurope
+npx swa login --resource-group AzureIntroHtl \
+    --app-name web-azureintrohtl-fe
+
+_staticwebapp.config.json_:
+
+```json
+{
+    "navigationFallback": {
+        "rewrite": "/index.html"
+    }
+}
+```
+
+npx swa init --yes
+npx swa build
+npx swa deploy --resource-group AzureIntroHtl \
+    --app-name web-azureintrohtl-fe \
+    --env production
+
+
+CREATE USER [web-azureintrohtl1] FROM EXTERNAL PROVIDER;
+ALTER ROLE db_datareader ADD MEMBER [web-azureintrohtl1];
+ALTER ROLE db_datawriter ADD MEMBER [web-azureintrohtl1];
+ALTER ROLE db_ddladmin ADD MEMBER [web-azureintrohtl1];
+ALTER ROLE db_owner ADD MEMBER [web-azureintrohtl1];
