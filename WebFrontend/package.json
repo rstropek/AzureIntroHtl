@@ -1,0 +1,23 @@
+{
+  "name": "webfrontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "start": "vite dev",
+    "deploy": "SERVICE_BASE=https://web-azureintrohtl1.azurewebsites.net swa build && swa deploy --env production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "marked": "^15.0.7",
+    "vite": "^6.2.5"
+  },
+  "devDependencies": {
+    "@azure/static-web-apps-cli": "^2.0.5",
+    "@types/marked": "^5.0.2"
+  }
+}

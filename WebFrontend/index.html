@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <div class="logo-container">
+          <span class="logo">🌸</span>
+          <div class="brand">
+            <h1>Wonderful Flowers</h1>
+            <p>Let flowers draw a smile on your face</p>
+          </div>
+        </div>
+        <div class="cart-icon-container">
+          <div class="cart-icon" id="cartToggle">
+            🛒
+            <span class="cart-count" id="cartCount">0</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Chat Section -->
+        <section class="chat-section" id="chatSection">
+          <div class="chat-container" id="chatContainer">
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input-container">
+              <input
+                type="text"
+                id="chatInput"
+                placeholder="Type your message here..."
+              />
+              <button id="sendButton">Send</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Cart Section -->
+        <section class="cart-section" id="cartSection">
+          <div class="cart-header">
+            <h2>Your Bouquets</h2>
+            <button class="close-cart" id="closeCart">×</button>
+          </div>
+          <div class="cart-items" id="cartItems"></div>
+          <div class="cart-footer">
+            <div class="cart-total">
+              <span>Total:</span>
+              <span id="cartTotal">0.00€</span>
+            </div>
+            <button class="order-button" id="orderButton">Order Now</button>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="src/index.ts" type="module"></script>
+  </body>
+</html>
